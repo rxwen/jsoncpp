@@ -20,11 +20,14 @@ LOCAL_EXPORT_C_INCLUDE_DIRS := \
 LOCAL_CFLAGS := \
 	-DJSON_USE_EXCEPTION=0
 
-LOCAL_MODULE_TAGS := \
-	tests
-
 LOCAL_MODULE := \
 	libjsoncpp
 
-include external/stlport/libstlport.mk
-include $(BUILD_STATIC_LIBRARY)
+ifneq ($(TARGET_SIMULATOR),true)
+LOCAL_C_INCLUDES += bionic		# very important!
+LOCAL_C_INCLUDES += external/stlport/stlport
+LOCAL_SHARED_LIBRARIES += libstlport
+else
+LOCAL_LDLIBS += -lpthread
+endif
+include $(BUILD_SHARED_LIBRARY)
