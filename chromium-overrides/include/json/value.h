@@ -11,7 +11,6 @@
 #endif // if !defined(JSON_IS_AMALGAMATION)
 # include <string>
 # include <vector>
-# include <stdint.h>
 
 # ifndef JSON_USE_CPPTL_SMALLMAP
 #  include <map>
@@ -219,9 +218,7 @@ namespace Json {
       Value( UInt value );
 #if defined(JSON_HAS_INT64)
       Value( Int64 value );
-      Value( int64_t value );
       Value( UInt64 value );
-      Value( uint64_t value );
 #endif // if defined(JSON_HAS_INT64)
       Value( double value );
       Value( const char *value );

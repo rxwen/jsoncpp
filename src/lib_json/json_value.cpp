@@ -346,29 +346,8 @@ Value::Value( Int64 value )
    value_.int_ = value;
 }
 
-Value::Value( int64_t value )
-   : type_( intValue )
-   , allocated_( false )
-# ifdef JSON_VALUE_USE_INTERNAL_MAP
-   , itemIsUsed_( 0 )
-#endif
-   , comments_( 0 )
-{
-   value_.int_ = value;
-}
 
 Value::Value( UInt64 value )
-   : type_( uintValue )
-   , allocated_( false )
-# ifdef JSON_VALUE_USE_INTERNAL_MAP
-   , itemIsUsed_( 0 )
-#endif
-   , comments_( 0 )
-{
-   value_.uint_ = value;
-}
-
-Value::Value( uint64_t value )
    : type_( uintValue )
    , allocated_( false )
 # ifdef JSON_VALUE_USE_INTERNAL_MAP
